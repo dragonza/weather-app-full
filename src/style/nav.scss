@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  //background-color: rgb(15, 157, 88);
+  margin-bottom: 1rem;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.logo {
+}
+
+.logo__item {
+  color: white;
+  width: 15rem;
+  display: block;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+}
+.date {
+  flex: 1;
+  text-align: center;
+}
+.nav__item {
+  padding: 1rem;
+  text-decoration: none;
+}
