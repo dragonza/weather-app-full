@@ -1,63 +1,61 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { makeAuthTokenSelector } from '../containers/Auth/auth-selector';
-import Logo from './icons/Logo';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+// import { createStructuredSelector } from "reselect";
+// import { makeAuthTokenSelector } from "../containers/Auth/auth-selector";
+import Logo from "./icons/Logo";
+import Toggle from "react-toggle";
+import Hamburger from "./icons/Hamburger";
 
 class Header extends Component {
-  renderMenu = () => {
-    const { authenticated } = this.props;
-    if (!authenticated.length) {
-      return (
-        <>
-          <Link to="/signup" className="nav__item">
-            Sign Up
-          </Link>
-          <Link to="/signin" className="nav__item">
-            Sign In
-          </Link>
-        </>
-      );
-    }
+  handleMenuClick = () => {
+    this.props.onMenuClick()
+  };
 
-    return (
-      <>
-        <Link to="/feature" className="nav__item">
-          Feature
-        </Link>
-        <Link to="/signout" className="nav__item">
-          Sign Out
-        </Link>
-      </>
-    );
+  handleThemeToggle = () => {
+    const { onThemeToggleClick } = this.props;
+    onThemeToggleClick();
   };
 
   render() {
+    const { theme } = this.props;
     return (
       <header className="header">
-        <div className="logo">
+        <div className="logo header__item header__item--left">
+          <div className="icon icon__hamburger">
+            <Hamburger theme={theme} onMenuClick={this.handleMenuClick}/>
+          </div>
           <Link to="/" className="logo__item">
-            <Logo name="Minimis" />
+            <Logo theme={theme} name="Minimis" />
           </Link>
         </div>
-        <div className="date">Today</div>
-        {/*<nav className="nav">{this.renderMenu()}</nav>*/}
+        <div className="date__text header__item">Today</div>
+        <div className="toggle header__item header__item--right">
+          <span className="toggle__label">Light</span>
+          <Toggle
+            icons={false}
+            className="toggle__button toggle-theme"
+            checked={theme === "dark"}
+            onChange={this.handleThemeToggle}
+          />
+          <span className="toggle__label">dark</span>
+        </div>
       </header>
     );
   }
 }
-const mapStateToProps = createStructuredSelector({
-  authenticated: makeAuthTokenSelector()
-});
+
+// const mapStateToProps = createStructuredSelector({
+//   authenticated: makeAuthTokenSelector()
+// });
 
 Header.propTypes = {
-  authenticated: PropTypes.string
+  theme: PropTypes.string,
+  onMenuClick: PropTypes.func,
 };
 
-Header.defaultProps = {
-  authenticated: ''
-};
+Header.defaultProps = {};
 
-export default connect(mapStateToProps)(Header);
+export default Header;
+
+// export default connect(mapStateToProps)(Header);

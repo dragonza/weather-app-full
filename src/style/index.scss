@@ -1,4 +1,7 @@
-@import "general.scss";
-@import "app.scss";
-@import "kanban";
+@import "reset";
+@import "general";
+@import "app";
 @import "nav";
+@import "side-menu";
+@import "cards";
+@import "weather-detail";

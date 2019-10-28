@@ -1,11 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import CardList from "./CardList";
+import { fromJS } from "immutable";
+import AddCard from "./AddCard";
+import BackArrow from "../../components/icons/BackArrow";
+
+const data = {
+  0: {
+    city: 'Paris'
+  },
+  1: {
+    city: 'Vancouver'
+  }
+
+};
 
 export default () => {
+  console.log('app');
   return (
-    <div className="App">
-      <h1>Have a good day!</h1>
-      <Link to="/kanban">Todo</Link>
+    <div className="main__container">
+      <div className="app__icon app__icon--left">
+        L
+      </div>
+      <div className="cards-container">
+        <CardList cards={fromJS(data)} />
+        <AddCard />
+      </div>
+      <div className="app__icon app__icon--right">
+        R
+      </div>
     </div>
   );
 };

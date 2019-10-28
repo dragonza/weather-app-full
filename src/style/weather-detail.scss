@@ -1,0 +1,31 @@
+.weather-detail {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+                  to bottom,
+                  var(--card-bg-start),
+                  var(--card-bg-end)
+  );
+}
+
+.weather-detail__icon {
+  width: 5rem;
+}
+
+.weather-detail__icon--back {
+  position: absolute;
+  left: 3rem;
+  top: 1rem;
+}
+
+.weather-detail__content {
+  width: 60%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+}

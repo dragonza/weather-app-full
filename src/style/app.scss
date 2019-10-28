@@ -30,3 +30,9 @@
 .error {
   color: #86181d;
 }
+
+.main__container {
+  display: flex;
+  margin-top: 6rem;
+  justify-content: space-between;
+}

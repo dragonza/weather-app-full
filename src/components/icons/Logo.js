@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Logo({
+  theme,
   name = 'Logo',
   fill = '#432c85',
   fontFamily = 'SegoeUI-Semibold,Segoe UI',
@@ -13,7 +14,7 @@ function Logo({
       <path fill="#003eff" d="M193.1 65h-42.8L193 22.2z" data-name="Path 2" />
       <text
         className="logo__text"
-        fill={fill}
+        fill={theme === 'dark' ? '#fff' : fill}
         fontFamily={fontFamily}
         fontSize={fontSize}
         fontWeight={fontWeight}
