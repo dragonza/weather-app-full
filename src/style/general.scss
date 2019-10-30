@@ -35,10 +35,13 @@ code {
   --secondary: #432c85;
 
   --white: #ffffff;
+  --black: #000000;
 
   --bg: var(--white);
   --bgEnd: var(--white);
   --textNormal: #222;
+
+  overflow: hidden;
   //--textTitle: var(--green);
   //--textLink: #222;
 

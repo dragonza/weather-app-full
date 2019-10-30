@@ -13,7 +13,7 @@ class WeatherDetail extends Component {
   render() {
     return (
       <div className="weather-detail">
-        <Link className="weather-detail__icon weather-detail__icon--back">
+        <Link className="weather-detail__icon weather-detail__icon--back" to="/">
           <BackArrow />
         </Link>
         <div className="weather-detail__bg">
@@ -21,20 +21,29 @@ class WeatherDetail extends Component {
         </div>
         <section className="weather-detail__content">
           <div className="weather-detail__content-header">
-            <div className="weather-detail__icon-condition">
-              <Sunny />
+            <div className="weather-detail__info">
+              <div className="weather-detail__icon weather-detail--icon-weather">
+                <Sunny />
+              </div>
+              <div className="weather-detail__temp-info">
+                <div className="weather-detail__temp-container">
+                  <span className="weather-detail__temp weather-detail__temp--main">20</span>
+                  <span className="weather-detail__metric">°</span>
+                </div>
+                <div className="weather-detail__desc">cloudy</div>
+              </div>
             </div>
-            <div className="weather-detail__temp-container">
-              <span className="weather-detail__temp weather-card__temp--main">20</span>
-              <span className="weather-detail__metric">°</span>
-            </div>
-            <div className="weather-detail__desc">cloudy</div>
+
             <div className="weather-detail__city">
-              Paris
+              <span className="weather-detail__city-text">
+                Paris
+              </span>
             </div>
           </div>
           <div className="weather-detail__content-body">
-            This is content body
+            <div className="weather-detail__forecast">
+
+            </div>
           </div>
         </section>
       </div>
