@@ -45,18 +45,12 @@ code {
   //--textTitle: var(--green);
   //--textLink: #222;
 
-  background: linear-gradient(to right, var(--bg), var(--bgEnd));
+  //background: linear-gradient(to right, var(--bg), var(--bgEnd));
   color: var(--textNormal);
 }
 
 .layout.dark {
-  --social-media: var(--white);
-  --bg: #b290ff;
-  --bgEnd: #432c85;
-
   --textNormal: rgba(255, 255, 255, 0.88);
-  //--textTitle: var(--lighter-green);
-  //--textLink: yellow;
 }
 
 .icon {

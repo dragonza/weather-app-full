@@ -18,7 +18,7 @@ function Layout({ children }) {
 
   return (
     <div className={layoutClass}>
-      <SideMenu isMenuActive={isMenuActive} theme={theme} />
+      <SideMenu isMenuActive={isMenuActive} theme={theme} onOverLayClick={() => activeMenu(!isMenuActive)} />
       <Header theme={theme} onThemeToggleClick={toggleTheme} onMenuClick={() => activeMenu(!isMenuActive)} />
       {children}
     </div>

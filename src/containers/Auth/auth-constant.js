@@ -13,7 +13,7 @@ export const SIGNIN_LOADING = 'auth/UPDATE_DATA/SIGNIN_LOADING';
 export const SIGNOUT = 'auth/UPDATE_DATA/SIGNOUT';
 
 export const commonRestrictions = {
-  usernameMaxLength: 15,
+  usernameMinLength: 5,
   passwordMinLength: 8,
 };
 
@@ -21,6 +21,7 @@ export const errorsText = {
   requireField: 'This field is required',
   invalidEmail: 'Invalid email address',
   userNameMaxLength: 'Must be 15 characters or less',
+  userNameMinLength: 'Must be 5 characters or more',
   passwordMinLength: 'Must be 8 characters or more',
   confirmPassWordNotMatch: 'Confirmed password does not matched',
 };

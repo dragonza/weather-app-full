@@ -1,21 +1,21 @@
-import React from 'react';
-import { reduxForm, Field } from 'redux-form/immutable';
-import FormInputField from '../../../components/FormInputField';
-import { isValidEmail } from '../../../utils/validator';
-import { commonRestrictions, errorsText } from '../auth-constant';
+import React from "react";
+import { reduxForm, Field } from "redux-form/immutable";
+import FormInputField from "../../../components/FormInputField";
+import { isValidEmail } from "../../../utils/validator";
+import { commonRestrictions, errorsText } from "../auth-constant";
 
 class SignupForm extends React.Component {
   renderFields = () => {
     return (
       <React.Fragment>
-        {/* <Field */}
-        {/*  key="username" */}
-        {/*  component={InputField} */}
-        {/*  type="text" */}
-        {/*  label="Username" */}
-        {/*  placeholder="Username" */}
-        {/*  name="username" */}
-        {/* /> */}
+        <Field
+          key="username"
+          component={FormInputField}
+          type="text"
+          label="Username"
+          placeholder="Username"
+          name="username"
+        />
         <Field
           key="email"
           component={FormInputField}
@@ -70,22 +70,31 @@ function validate(values) {
   // TODO: review this
   const errors = {};
 
-  if (!values.get('email')) {
-    errors.email = errorsText.requireField;
-  } else if (!isValidEmail(values.get('email'))) {
-    errors.email = 'Invalid email address';
+  if (!values.get("username")) {
+    errors.username = errorsText.requireField;
+  } else if (
+    values.get("username") &&
+    values.get("username").length < commonRestrictions.usernameMinLength
+  ) {
+    errors.username = errorsText.userNameMinLength;
   }
 
-  if (!values.get('password')) {
+  if (!values.get("email")) {
+    errors.email = errorsText.requireField;
+  } else if (!isValidEmail(values.get("email"))) {
+    errors.email = "Invalid email address";
+  }
+
+  if (!values.get("password")) {
     errors.password = errorsText.requireField;
   } else if (
-    values.get('password') &&
-    values.get('password').length < commonRestrictions.passwordMinLength
+    values.get("password") &&
+    values.get("password").length < commonRestrictions.passwordMinLength
   ) {
     errors.password = errorsText.passwordMinLength;
   }
 
-  if (values.get('password') !== values.get('passwordRepeated')) {
+  if (values.get("password") !== values.get("passwordRepeated")) {
     errors.passwordRepeated = errorsText.confirmPassWordNotMatch;
   }
 
@@ -93,6 +102,6 @@ function validate(values) {
 }
 
 export default reduxForm({
-  form: 'signupForm',
-  validate,
+  form: "signupForm",
+  validate
 })(SignupForm);

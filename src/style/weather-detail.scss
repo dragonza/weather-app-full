@@ -7,12 +7,7 @@
   justify-content: center;
   align-items: center;
 
-  background: linear-gradient(
-                  to bottom,
-                  var(--card-bg-start),
-                  var(--card-bg-end)
-  );
-
+  background: linear-gradient(to top, #86dbff 0%, #e0c3fc 100%);
 }
 
 .weather-detail__icon {
@@ -40,16 +35,79 @@
 }
 
 .weather-detail__bg {
-  width: 60%;
   position: absolute;
   right: 0;
-  top: 0
+  top: 0;
+  //top: 50%;
+  z-index: 1;
+  height: 100rem;
+  width: 100rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    -225deg,
+    #ffffff 0%,
+    #ffe29f 10%,
+    #ffa99f 48%,
+    #ffd1ff 100%
+  );
+  animation: scaleup-circle 900ms ease-in-out forwards;
+  transition: background 1s ease-in-out;
 }
 
 .weather-detail__content-body {
   background: var(--white);
   color: var(--black);
   height: 50%;
+  display: flex;
+}
+
+.weather-detail__twitter-container {
+  flex: 1;
+}
+
+.weather-detail__forecast {
+  $weather-detail__forecast: 3rem;
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: $weather-detail__forecast;
+  position: relative;
+
+  &::before {
+    content: " ";
+    border-left: 2px solid #5143AB;
+    position: absolute;
+    top: $weather-detail__forecast;
+    left: 0;
+    bottom: $weather-detail__forecast;
+  }
+
+  .weather-detail__temp,
+  .weather-detail__metric,
+  .weather-detail__desc {
+    font-size: inherit;
+  }
+
+  .weather-detail--icon-weather {
+    width: 6rem;
+  }
+
+  .weather-detail__metric {
+    right: 14px;
+    top: -6px;
+  }
+}
+
+.weather-detail__day {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-detail__day-text {
+  text-transform: uppercase;
+  font-size: 2rem;
 }
 
 .weather-detail__content-header {
@@ -58,7 +116,7 @@
   height: 50%;
   align-items: center;
   justify-content: space-around;
-  background: rgba(131, 131, 255, .5);
+  background: rgba(131, 131, 255, 0.5);
 }
 
 .weather-detail__temp--main,
@@ -80,7 +138,7 @@
 .weather-detail__city-text::after {
   width: 20%;
   margin: 0 auto;
-  content: '';
+  content: "";
   display: block;
   text-align: center;
   padding-bottom: 1rem;
@@ -105,4 +163,29 @@
   position: absolute;
   right: -30px;
   top: -15px;
+}
+
+//.background-gradient__circle {
+//  position: absolute;
+//  top: 50%;
+//  right: 0;
+//  z-index: 1;
+//  height: 100rem;
+//  width: 100rem;
+//  border-radius: 50%;
+//  background: linear-gradient(-225deg, #ffffff 0%, #FFE29F 10%, #FFA99F 48%, #ffd1ff 100%);
+//  animation: scaleup-circle 900ms ease-in-out forwards;
+//  transition: background 1s ease-in-out;
+//
+//}
+
+.dark {
+  .weather-detail {
+    background: linear-gradient(#fc7db8, #495cfc);
+  }
+
+  .weather-detail__bg {
+    transition: background 1s ease-in-out;
+    background: linear-gradient(to bottom, #ff8b8b, #6676ff);
+  }
 }

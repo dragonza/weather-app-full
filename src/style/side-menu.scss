@@ -52,8 +52,9 @@
   transform: none;
 }
 
+.side-menu__overlay,
 .side-menu::before {
-  content: "";
+  //content: "";
   cursor: pointer;
   position: absolute;
   display: block;
@@ -70,7 +71,7 @@
 .side-menu--active {
   pointer-events: auto;
 
-  &:before {
+  .side-menu__overlay {
     opacity: 0.3;
   }
 }

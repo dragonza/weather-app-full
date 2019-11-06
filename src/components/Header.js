@@ -23,7 +23,7 @@ class Header extends Component {
       <header className="header">
         <div className="logo header__item header__item--left">
           <div className="icon icon__hamburger">
-            <Hamburger theme={theme} onMenuClick={this.handleMenuClick}/>
+            <Hamburger theme={theme} onMenuClick={this.handleMenuClick} />
           </div>
           <Link to="/" className="logo__item">
             <Logo theme={theme} name="Minimis" />

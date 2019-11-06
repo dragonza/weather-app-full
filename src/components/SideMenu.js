@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 class SideMenu extends Component {
   render() {
-    const { isMenuActive } = this.props;
+    const { isMenuActive, onOverLayClick } = this.props;
     const sideMenuClasses = classnames("side-menu", {
       "side-menu--active": isMenuActive
     });
@@ -13,6 +13,7 @@ class SideMenu extends Component {
     });
     return (
       <aside className={sideMenuClasses}>
+        <div className="side-menu__overlay" onClick={onOverLayClick}/>
         <nav className={sideMenuContentClasses}>
           <section className="side-menu__header">
             <div className="side-menu__title">Welcome back</div>
