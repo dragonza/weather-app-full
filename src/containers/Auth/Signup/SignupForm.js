@@ -9,18 +9,9 @@ class SignupForm extends React.Component {
     return (
       <React.Fragment>
         <Field
-          key="username"
-          component={FormInputField}
-          type="text"
-          label="Username"
-          placeholder="Username"
-          name="username"
-        />
-        <Field
           key="email"
           component={FormInputField}
           type="email"
-          label="Email Address"
           placeholder="john@example.com"
           name="email"
         />
@@ -29,16 +20,7 @@ class SignupForm extends React.Component {
           component={FormInputField}
           type="password"
           placeholder="password"
-          label="Password"
           name="password"
-        />
-        <Field
-          key="passwordRepeated"
-          component={FormInputField}
-          type="password"
-          placeholder="password"
-          label="Password Confirmed"
-          name="passwordRepeated"
         />
       </React.Fragment>
     );
@@ -55,11 +37,11 @@ class SignupForm extends React.Component {
   render() {
     const { handleSubmit, submitting } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="sign-up__form">
         {this.renderFields()}
         {this.renderError()}
-        <button type="submit" className="btn btn-primary" disabled={submitting}>
-          Sign up
+        <button type="submit" className="sign-up__btn" disabled={submitting}>
+          Signup
         </button>
       </form>
     );
@@ -70,14 +52,14 @@ function validate(values) {
   // TODO: review this
   const errors = {};
 
-  if (!values.get("username")) {
-    errors.username = errorsText.requireField;
-  } else if (
-    values.get("username") &&
-    values.get("username").length < commonRestrictions.usernameMinLength
-  ) {
-    errors.username = errorsText.userNameMinLength;
-  }
+  // if (!values.get("username")) {
+  //   errors.username = errorsText.requireField;
+  // } else if (
+  //   values.get("username") &&
+  //   values.get("username").length < commonRestrictions.usernameMinLength
+  // ) {
+  //   errors.username = errorsText.userNameMinLength;
+  // }
 
   if (!values.get("email")) {
     errors.email = errorsText.requireField;
