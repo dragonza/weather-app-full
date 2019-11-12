@@ -1,37 +1,37 @@
 @import 'form';
 
-.sign-up {
+.sign-in {
   @extend .form__container;
 }
 
-.sign-up__content {
+.sign-in__content {
   @extend .form__content;
 }
 
-.sign-up__input-area {
+.sign-in__input-area {
   @extend .form__input-area;
 }
 
-.sign-up__form {
+.sign-in__form {
   @extend .form;
 }
 
-.sign-up__bg {
- @extend .form__bg;
+.sign-in__bg {
+  @extend .form__bg;
 }
 
-.sign-up__img {
+.sign-in__img {
   @extend .form__img;
 }
 
-.sign-up__btn {
+.sign-in__btn {
   @extend .form__btn;
 }
 
-.sign-up__link-ask {
+.sign-in__link-ask {
   @extend .form__link-ask;
 }
 
-.sign-up__link {
+.sign-in__link {
   @extend .form__link;
 }

@@ -23,16 +23,14 @@ export default function Routes() {
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Layout>
-          <Switch>
-            <Route exact path="/" component={App} />
-            <Route path="/detail/:city" component={WeatherDetail} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" component={Login} />
-            {/*<Route path="/signout" component={Signout} />*/}
-            <Route component={() => <div>404 Not found </div>} />
-          </Switch>
-        </Layout>
+        <Switch>
+          <Route exact path="/" component={App} />
+          <Route path="/detail/:city" component={WeatherDetail} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+          {/*<Route path="/signout" component={Signout} />*/}
+          <Route component={() => <div>404 Not found </div>} />
+        </Switch>
       </ConnectedRouter>
     </Provider>
   );

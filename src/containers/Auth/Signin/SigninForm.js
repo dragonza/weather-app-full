@@ -9,25 +9,16 @@ class SigninForm extends React.Component {
   renderFields = () => {
     return (
       <React.Fragment>
-        {/* <Field */}
-        {/*  key="username" */}
-        {/*  component={InputField} */}
-        {/*  type="text" */}
-        {/*  label="Username" */}
-        {/*  name="username" */}
-        {/* /> */}
         <Field
           key="email"
           component={InputField}
           type="email"
-          label="Email"
           name="email"
         />
         <Field
           key="password"
           component={InputField}
           type="password"
-          label="Password"
           name="password"
         />
       </React.Fragment>
@@ -45,10 +36,10 @@ class SigninForm extends React.Component {
   render() {
     const { handleSubmit, submitting } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="sign-in__form">
         {this.renderFields()}
         {this.renderError()}
-        <button type="submit" className="btn btn-primary" disabled={submitting}>
+        <button type="submit" className="sign-in__btn" disabled={submitting}>
           Login
         </button>
       </form>

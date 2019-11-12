@@ -1,4 +1,6 @@
 import { push } from 'connected-react-router';
+import firebase from 'firebase'
+
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { SIGNUP_SAGA, SIGNIN_SAGA } from './auth-constant';
 import apiRequest from '../../store/request';
@@ -10,27 +12,30 @@ import {
   signInFailed,
   signInSuccess,
 } from './auth-action';
-
-const rootUrl = 'http://localhost:3090';
+import rsf from '../../components/Firebase'
+const authProvider = new firebase.auth.GoogleAuthProvider();
 
 function* handleSignUpSaga({ formProps }) {
   try {
     yield put(signUpLoading(true));
     const { email, password } = formProps;
-    const requestUrl = `${rootUrl}/signup`;
+    const user = yield call(rsf.auth.createUserWithEmailAndPassword, email, password);
+    console.log('user', user);
 
-    const { token } = yield call(apiRequest, requestUrl, {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-    });
-    yield put(signUpSuccess({ authenticated: token, loading: false }));
-    localStorage.setItem('token', token);
+    // const requestUrl = `${rootUrl}/signup`;
 
-    yield put(push('/feature'));
+    // const { token } = yield call(apiRequest, requestUrl, {
+    //   method: 'POST',
+    //   body: JSON.stringify({ email, password }),
+    // });
+    yield put(signUpSuccess({ loading: false }));
+    // localStorage.setItem('token', token);
+
+    // yield put(push('/feature'));
   } catch (e) {
     yield put(
       signUpFailed({
-        errorMessage: e,
+        errorMessage: e.message,
         loading: false,
       }),
     );
@@ -41,7 +46,7 @@ function* handleSignInSaga({ formProps }) {
   try {
     yield put(signInLoading(true));
     const { email, password } = formProps;
-    const requestUrl = `${rootUrl}/signin`;
+    const requestUrl = ``;
 
     const { token } = yield call(apiRequest, requestUrl, {
       method: 'POST',
@@ -59,6 +64,6 @@ function* handleSignInSaga({ formProps }) {
 
 export default function* authSaga() {
   yield takeEvery(SIGNUP_SAGA, handleSignUpSaga);
-  yield takeEvery(SIGNIN_SAGA, handleSignInSaga);
+  // yield takeEvery(SIGNIN_SAGA, handleSignInSaga);
 }
 

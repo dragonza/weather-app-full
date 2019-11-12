@@ -7,6 +7,7 @@ import { makeAuthErrorSelector } from "../auth-selector";
 import SignupForm from "./SignupForm";
 import { Link } from 'react-router-dom'
 import { ROUTES } from "../../App/constants";
+import AuthenLayout from "../../../components/AuthenLayout";
 
 class Signup extends Component {
   handleSignUp = formProps => {
@@ -23,28 +24,30 @@ class Signup extends Component {
   render() {
     const { errorMessage } = this.props;
     return (
-      <div className="sign-up">
-        <div className="sign-up__content">
-          <div className="sign-up__input-area">
-            <h1>Signup</h1>
-            <SignupForm
-              onSubmit={this.handleSignUp}
-              errorMessage={errorMessage}
-            />
-            <div className="sign-up__link-ask">
-              <span>Already have an account? </span>
-              <Link to={ROUTES.LOGIN} className="sign-up__link">Login</Link>
+      <AuthenLayout>
+        <div className="sign-up">
+          <div className="sign-up__content">
+            <div className="sign-up__input-area">
+              <h1>Signup</h1>
+              <SignupForm
+                onSubmit={this.handleSignUp}
+                errorMessage={errorMessage}
+              />
+              <div className="sign-up__link-ask">
+                <span>Already have an account? </span>
+                <Link to={ROUTES.LOG_IN} className="sign-up__link">Login</Link>
+              </div>
+            </div>
+            <div className="sign-up__bg">
+              <img
+                src="https://source.unsplash.com/random/1200x900?mountain"
+                alt="sign-up__bg"
+                className="sign-up__img"
+              />
             </div>
           </div>
-          <div className="sign-up__bg">
-            <img
-              src="https://source.unsplash.com/random/1200x900?mountain"
-              alt="sign-up__bg"
-              className="sign-up__img"
-            />
-          </div>
         </div>
-      </div>
+      </AuthenLayout>
     );
   }
 }

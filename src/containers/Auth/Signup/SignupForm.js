@@ -22,6 +22,13 @@ class SignupForm extends React.Component {
           placeholder="password"
           name="password"
         />
+        <Field
+          key="passwordConfirmed"
+          component={FormInputField}
+          type="password"
+          placeholder="Confirm password"
+          name="passwordConfirmed"
+        />
       </React.Fragment>
     );
   };
@@ -76,8 +83,8 @@ function validate(values) {
     errors.password = errorsText.passwordMinLength;
   }
 
-  if (values.get("password") !== values.get("passwordRepeated")) {
-    errors.passwordRepeated = errorsText.confirmPassWordNotMatch;
+  if (values.get("password") !== values.get("passwordConfirmed")) {
+    errors.passwordConfirmed = errorsText.confirmPassWordNotMatch;
   }
 
   return errors;

@@ -20,6 +20,7 @@
     "redux-form": "^8.2.4",
     "redux-immutable": "^4.0.0",
     "redux-saga": "^0.16.2",
+    "redux-saga-firebase": "^0.15.0",
     "reselect": "^4.0.0",
     "uuid": "^3.3.2"
   },

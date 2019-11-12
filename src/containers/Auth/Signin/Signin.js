@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from "react-router-dom";
 import { createStructuredSelector } from 'reselect/lib/index';
 import { signIn } from '../auth-action';
 import {makeAuthErrorSelector, makeAuthTokenSelector} from '../auth-selector';
 import SigninForm from "./SigninForm";
+import { ROUTES } from "../../App/constants";
 
 class Signin extends Component {
   handleLogin = formProps => {
@@ -28,9 +29,28 @@ class Signin extends Component {
       return <Redirect to={from} />;
     }
     return (
-      <div>
-        <div>{from === "/" ? null : "Please login before proceeding"}</div>
-        <SigninForm onSubmit={this.handleLogin} errorMessage={errorMessage} />
+      <div className="sign-in">
+        {/*<div>{from === "/" ? null : "Please login before proceeding"}</div>*/}
+        <div className="sign-in__content">
+          <div className="sign-in__input-area">
+            <h1>Signin</h1>
+            <SigninForm
+              onSubmit={this.handleSignUp}
+              errorMessage={errorMessage}
+            />
+            <div className="sign-in__link-ask">
+              <span>Don't have an account? </span>
+              <Link to={ROUTES.SIGN_UP} className="sign-in__link">Signup</Link>
+            </div>
+          </div>
+          <div className="sign-in__bg">
+            <img
+              src="https://source.unsplash.com/random/1200x900?mountain"
+              alt="sign-in__bg"
+              className="sign-in__img"
+            />
+          </div>
+        </div>
       </div>
     );
   }
