@@ -36,7 +36,7 @@ class SignupForm extends React.Component {
   renderError = () => {
     const { errorMessage } = this.props;
     if (errorMessage) {
-      return <div>{errorMessage}</div>;
+      return <div className='form__error'>{errorMessage}</div>;
     }
     return null;
   };

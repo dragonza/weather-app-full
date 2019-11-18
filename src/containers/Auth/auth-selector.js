@@ -8,9 +8,9 @@ export const makeAuthErrorSelector = () => createSelector(
   errorMessage => errorMessage
 );
 
-const authTokenSelector = state => state.getIn(['auth', 'authenticated']);
+const authUserSelector = state => state.getIn(['auth', 'user']);
 
-export const makeAuthTokenSelector = () => createSelector(
-  authTokenSelector,
+export const makeAuthUserSelector = () => createSelector(
+  authUserSelector,
   token => token
 );

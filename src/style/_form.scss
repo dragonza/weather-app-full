@@ -27,6 +27,8 @@
 
 .form__bg {
   width: 60%;
+  background: url(https://source.unsplash.com/random/1200x900?mountain) center center/cover no-repeat;
+  animation: 2.25s ease-in-out fadein;
 }
 
 .form__img {
@@ -76,4 +78,9 @@
   color: #d535b5;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.form__error {
+  color: red;
+  margin-bottom: .5rem;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { makeAuthTokenSelector } from '../Auth/auth-selector';
+import { makeAuthUserSelector } from '../Auth/auth-selector';
 
 export const PrivateRoute = ({
   authenticated,
@@ -24,7 +24,7 @@ export const PrivateRoute = ({
 );
 
 const mapStateToProps = createStructuredSelector({
-  authenticated: makeAuthTokenSelector(),
+  user: makeAuthUserSelector(),
 });
 
 export default connect(mapStateToProps)(PrivateRoute);

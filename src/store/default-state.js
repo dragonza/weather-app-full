@@ -4,7 +4,7 @@ export default fromJS({
   weathers: {},
   weatherDetail: {},
   auth: {
-    authenticated: localStorage.getItem('token') || '', // store token here
+    user: null,
     errorMessage: '',
     loading: false,
   }

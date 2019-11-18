@@ -12,6 +12,7 @@ import {
   signInFailed,
   signInSuccess,
 } from './auth-action';
+import { ROUTES } from "../App/constants";
 import rsf from '../../components/Firebase'
 const authProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -20,18 +21,11 @@ function* handleSignUpSaga({ formProps }) {
     yield put(signUpLoading(true));
     const { email, password } = formProps;
     const user = yield call(rsf.auth.createUserWithEmailAndPassword, email, password);
-    console.log('user', user);
+    // console.log('user', user);
 
-    // const requestUrl = `${rootUrl}/signup`;
-
-    // const { token } = yield call(apiRequest, requestUrl, {
-    //   method: 'POST',
-    //   body: JSON.stringify({ email, password }),
-    // });
     yield put(signUpSuccess({ loading: false }));
-    // localStorage.setItem('token', token);
 
-    // yield put(push('/feature'));
+    yield put(push(ROUTES.LOG_IN));
   } catch (e) {
     yield put(
       signUpFailed({
@@ -46,24 +40,18 @@ function* handleSignInSaga({ formProps }) {
   try {
     yield put(signInLoading(true));
     const { email, password } = formProps;
-    const requestUrl = ``;
-
-    const { token } = yield call(apiRequest, requestUrl, {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-    });
-    yield put(signInSuccess({ authenticated: token, loading: false }));
-    localStorage.setItem('token', token);
-    yield put(push('/feature'));
+    const data = yield call(rsf.auth.signInWithEmailAndPassword, email, password);
+    yield put(signInSuccess({ user: data, loading: false }));
+    yield put(push('/'));
   } catch (e) {
     yield put(
-      signInFailed({ errorMessage: 'Email is in use', loading: false }),
+      signInFailed({ errorMessage: e.message, loading: false }),
     );
   }
 }
 
 export default function* authSaga() {
   yield takeEvery(SIGNUP_SAGA, handleSignUpSaga);
-  // yield takeEvery(SIGNIN_SAGA, handleSignInSaga);
+  yield takeEvery(SIGNIN_SAGA, handleSignInSaga);
 }
 
