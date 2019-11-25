@@ -60,16 +60,13 @@ class Signin extends Component {
 }
 
 Signin.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
   signIn: PropTypes.func.isRequired,
-  authenticated: PropTypes.string.isRequired,
   errorMessage: PropTypes.string.isRequired,
   location: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   errorMessage: makeAuthErrorSelector(),
-  user: makeAuthUserSelector(),
 });
 
 export default connect(mapStateToProps, { signIn })(Signin);

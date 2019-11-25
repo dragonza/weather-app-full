@@ -1,6 +1,6 @@
 export const ROUTES = {
   SIGN_UP: '/signup',
-  LOG_IN: '/login',
+  SIGN_IN: '/signin',
   PASSWORD_FORGET: '/pw-forget',
   ACCOUNT: '/account',
 };

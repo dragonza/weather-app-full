@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import { connect } from 'react-redux'
+import { signout } from "../pages/Auth/auth-action";
 
 class SideMenu extends Component {
   render() {
-    const { isMenuActive, onOverLayClick } = this.props;
+    const { isMenuActive, onOverLayClick, signout } = this.props;
     const sideMenuClasses = classnames("side-menu", {
       "side-menu--active": isMenuActive
     });
@@ -26,7 +28,9 @@ class SideMenu extends Component {
             </div>
           </section>
           <section className="side-menu__body"></section>
-          <section className="side-menu__footer"></section>
+          <section className="side-menu__footer">
+            <button onClick={() => signout()}>Signout</button>
+          </section>
         </nav>
       </aside>
     );
@@ -37,4 +41,4 @@ SideMenu.propTypes = {
   isMenuActive: PropTypes.bool
 };
 
-export default SideMenu;
+export default connect(null, { signout })(SideMenu);

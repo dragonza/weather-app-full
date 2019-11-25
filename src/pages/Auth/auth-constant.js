@@ -1,16 +1,20 @@
 export const AUTH_USER = 'auth/UPDATE_DATA/AUTH_USER';
 export const SIGNUP_SAGA = 'auth/SIGNUP_SAGA';
 export const SIGNIN_SAGA = 'auth/SIGNIN_SAGA';
+export const SIGNOUT_SAGA = 'auth/SIGNOUT_SAGA';
 
-export const SIGNUP_FAILED = 'auth/UPDATE_DATA/SIGNUP_FAILED';
-export const SIGNUP_SUCCESS = 'auth/UPDATE_DATA/SIGNUP_SUCCESS';
 export const SIGNUP_LOADING = 'auth/UPDATE_DATA/SIGNUP_LOADING';
+export const SIGNUP_SUCCESS = 'auth/UPDATE_DATA/SIGNUP_SUCCESS';
+export const SIGNUP_FAILED = 'auth/UPDATE_DATA/SIGNUP_FAILED';
 
-export const SIGNIN_FAILED = 'auth/UPDATE_DATA/SIGNIN_FAILED';
-export const SIGNIN_SUCCESS = 'auth/UPDATE_DATA/SIGNIN_SUCCESS';
 export const SIGNIN_LOADING = 'auth/UPDATE_DATA/SIGNIN_LOADING';
+export const SIGNIN_SUCCESS = 'auth/UPDATE_DATA/SIGNIN_SUCCESS';
+export const SIGNIN_FAILED = 'auth/UPDATE_DATA/SIGNIN_FAILED';
 
-export const SIGNOUT = 'auth/UPDATE_DATA/SIGNOUT';
+export const SIGNOUT_LOADING = 'auth/UPDATE_DATA/SIGNOUT_LOADING';
+export const SIGNOUT_SUCCESS = 'auth/UPDATE_DATA/SIGNOUT_LOADING';
+export const SIGNOUT_FAILED = 'auth/UPDATE_DATA/SIGNOUT_LOADING';
+
 
 export const commonRestrictions = {
   usernameMinLength: 5,

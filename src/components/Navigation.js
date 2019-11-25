@@ -5,7 +5,7 @@ const Navigation = () => (
   <div>
     <ul>
       <li>
-        <Link to={ROUTES.LOG_IN}>Log in</Link>
+        <Link to={ROUTES.SIGN_IN}>Log in</Link>
       </li>
       {/*<li>*/}
       {/*  <Link to={ROUTES.LANDING}>Landing</Link>*/}

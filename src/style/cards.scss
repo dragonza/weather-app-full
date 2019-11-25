@@ -1,22 +1,23 @@
 .home-page__container {
-  --bg: var(--white);
-  --bgEnd: var(--white);
   position: relative;
-  height: 100%;
-  background: linear-gradient(to bottom, var(--bg), var(--bgEnd));
 }
 
 .dark {
-  .home-page__container {
+  .cards-container {
     --bg: #b290ff;
     --bgEnd: #432c85;
   }
 }
 
 .cards-container {
+  --bg: var(--light-green-layout);
+  --bgEnd: var(--light-blue-layout);
+
   display: flex;
   flex: 1;
-  margin: 0 4rem;
+  height: 100%;
+  padding: 2rem 4rem;
+  background: linear-gradient(to bottom, var(--bg), var(--bgEnd));
 }
 
 .cards-list {

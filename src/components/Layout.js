@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import classnames from "classnames";
-import { useDarkMode } from "../containers/App/useDarkMode";
+import { useDarkMode } from "../pages/App/useDarkMode";
 import SideMenu from '../components/SideMenu'
 import PropTypes from "prop-types";
 import Header from "./Header";
 
-function Layout({ children }) {
+function Layout({ children, className }) {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
   const [isMenuActive, activeMenu] = useState(false);
 
@@ -13,7 +13,8 @@ function Layout({ children }) {
     return <div />;
   }
   const layoutClass = classnames("layout", {
-    dark: theme === "dark"
+    dark: theme === "dark",
+    [className]: className,
   });
 
   return (

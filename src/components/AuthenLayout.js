@@ -1,5 +1,9 @@
+/**
+ * This layout is for sign in and sign up page
+ */
+
+
 import React, { useState } from "react";
-import SideMenu from '../components/SideMenu'
 import PropTypes from "prop-types";
 
 function AuthenLayout({ children }) {

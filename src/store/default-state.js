@@ -4,7 +4,6 @@ export default fromJS({
   weathers: {},
   weatherDetail: {},
   auth: {
-    user: null,
     errorMessage: '',
     loading: false,
   }

@@ -35,7 +35,7 @@ class Signup extends Component {
               />
               <div className="sign-up__link-ask">
                 <span>Already have an account? </span>
-                <Link to={ROUTES.LOG_IN} className="sign-up__link">Login</Link>
+                <Link to={ROUTES.SIGN_IN} className="sign-up__link">Login</Link>
               </div>
             </div>
             <div className="sign-up__bg">
