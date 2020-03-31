@@ -1,0 +1,15 @@
+@mixin main-container {
+  --bg: var(--light-green-layout);
+  --bgEnd: var(--light-blue-layout);
+
+  display: flex;
+  flex: 1;
+  height: 100%;
+  padding: 2rem 4rem;
+  background: linear-gradient(to bottom, var(--bg), var(--bgEnd));
+}
+
+@mixin dark-main-container {
+  --bg: #b290ff;
+  --bgEnd: #432c85;
+}

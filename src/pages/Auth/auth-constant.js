@@ -15,6 +15,7 @@ export const SIGNOUT_LOADING = 'auth/UPDATE_DATA/SIGNOUT_LOADING';
 export const SIGNOUT_SUCCESS = 'auth/UPDATE_DATA/SIGNOUT_LOADING';
 export const SIGNOUT_FAILED = 'auth/UPDATE_DATA/SIGNOUT_LOADING';
 
+export const SYNC_USER = 'auth/UPDATE_DATA/SYNC_USER';
 
 export const commonRestrictions = {
   usernameMinLength: 5,

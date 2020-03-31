@@ -6,6 +6,14 @@ class AddWeather extends Component {
   render() {
     return (
       <Layout className="add-weather__container">
+        <div className="add-weather__content">
+          <div className="add-weather__city-list">
+            Hello
+          </div>
+          <div className="add-weather__city-of-the-month">
+
+          </div>
+        </div>
 
       </Layout>
     );

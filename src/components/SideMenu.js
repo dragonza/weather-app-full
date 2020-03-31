@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 import { signout } from "../pages/Auth/auth-action";
 
 class SideMenu extends Component {
   render() {
-    const { isMenuActive, onOverLayClick, signout } = this.props;
+    const { isMenuActive, onOverLayClick, signout, user } = this.props;
+    console.log("user", user);
     const sideMenuClasses = classnames("side-menu", {
       "side-menu--active": isMenuActive
     });
@@ -15,7 +16,7 @@ class SideMenu extends Component {
     });
     return (
       <aside className={sideMenuClasses}>
-        <div className="side-menu__overlay" onClick={onOverLayClick}/>
+        <div className="side-menu__overlay" onClick={onOverLayClick} />
         <nav className={sideMenuContentClasses}>
           <section className="side-menu__header">
             <div className="side-menu__title">Welcome back</div>
@@ -27,7 +28,11 @@ class SideMenu extends Component {
               </div>
             </div>
           </section>
-          <section className="side-menu__body"></section>
+          <section className="side-menu__body">
+            {user && (
+              <div className="side-menu__email">{user.get("email")}</div>
+            )}
+          </section>
           <section className="side-menu__footer">
             <button onClick={() => signout()}>Signout</button>
           </section>
@@ -41,4 +46,7 @@ SideMenu.propTypes = {
   isMenuActive: PropTypes.bool
 };
 
-export default connect(null, { signout })(SideMenu);
+export default connect(
+  null,
+  { signout }
+)(SideMenu);

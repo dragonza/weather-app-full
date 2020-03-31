@@ -1,23 +1,16 @@
+@import "layout/layout";
 .home-page__container {
   position: relative;
 }
 
 .dark {
   .cards-container {
-    --bg: #b290ff;
-    --bgEnd: #432c85;
+    @include dark-main-container
   }
 }
 
 .cards-container {
-  --bg: var(--light-green-layout);
-  --bgEnd: var(--light-blue-layout);
-
-  display: flex;
-  flex: 1;
-  height: 100%;
-  padding: 2rem 4rem;
-  background: linear-gradient(to bottom, var(--bg), var(--bgEnd));
+  @include main-container;
 }
 
 .cards-list {

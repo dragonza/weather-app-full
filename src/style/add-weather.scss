@@ -1,0 +1,18 @@
+@import "layout/layout";
+
+.add-weather__container {
+}
+
+.dark {
+  .add-weather__content {
+    @include dark-main-container;
+  }
+}
+
+.add-weather__content {
+  @include main-container;
+}
+
+.add-weather__city-of-the-month {
+  background: url("https://www.viajarsolo.com/thumbnails/gallery_image_full/components/kcfinder/kcfinder-3.12/upload/images/0B8ejrJ3IlSZvQUdyWHgtZjdtVVE.jpg?itok=Y2KZ6rfH");
+}

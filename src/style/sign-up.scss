@@ -1,37 +1,37 @@
-@import 'form';
+@import 'form/form';
 
 .sign-up {
-  @extend .form__container;
+  @include form-container
 }
 
 .sign-up__content {
-  @extend .form__content;
+  @include form__content;
 }
 
 .sign-up__input-area {
-  @extend .form__input-area;
+  @include form__input-area;
 }
 
 .sign-up__form {
-  @extend .form;
+  @include form;
 }
 
 .sign-up__bg {
- @extend .form__bg;
+ @include form__bg;
 }
 
 .sign-up__img {
-  @extend .form__img;
+  @include form__img;
 }
 
 .sign-up__btn {
-  @extend .form__btn;
+  @include form__btn;
 }
 
 .sign-up__link-ask {
-  @extend .form__link-ask;
+  @include form__link-ask;
 }
 
 .sign-up__link {
-  @extend .form__link;
+  @include form__link;
 }

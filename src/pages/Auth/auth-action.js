@@ -10,6 +10,7 @@ import {
   SIGNIN_FAILED,
   SIGNOUT_SAGA,
   SIGNOUT_SUCCESS,
+  SYNC_USER
 } from "./auth-constant";
 import { UPDATE_DATA } from "../../store/data-action";
 
@@ -107,5 +108,13 @@ export const signoutFailed = payload => {
     _type: SIGNIN_FAILED,
     _path: path,
     _value: fromJS(payload)
+  });
+};
+
+export const syncUser = user => {
+  return UPDATE_DATA({
+    _type: SYNC_USER,
+    _path: `${path}.user`,
+    _value: fromJS(user)
   });
 };

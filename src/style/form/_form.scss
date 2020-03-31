@@ -1,23 +1,24 @@
-.form__container {
+@mixin form-container {
   height: 100%;
   padding: 1rem;
-  background-image: linear-gradient(to top, #5ee7df 0, #66a6ff 100%);
-  transition: background 0.3s linear;
+  background: linear-gradient(to top, #5ee7df 0, #66a6ff 100%);
+  animation: 2.5s ease-in fadein;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.form__content {
+@mixin form__content {
   width: 80%;
   height: 80%;
   border-radius: 8px;
   background: #fff;
   display: flex;
   overflow: hidden;
+  animation: 1s ease-in fadein;
 }
 
-.form__input-area {
+@mixin form__input-area {
   width: 40%;
   display: flex;
   justify-content: center;
@@ -25,18 +26,18 @@
   flex-direction: column;
 }
 
-.form__bg {
+@mixin form__bg {
   width: 60%;
   background: url(https://source.unsplash.com/random/1200x900?mountain) center center/cover no-repeat;
   animation: 2.25s ease-in-out fadein;
 }
 
-.form__img {
+@mixin form__img {
   width: 100%;
   height: 100%;
 }
 
-.form {
+@mixin form {
   width: 80%;
   text-align: center;
 
@@ -55,7 +56,7 @@
   }
 }
 
-.form__btn {
+@mixin form__btn {
   background-color: var(--primary-green);
   padding: 1.5rem;
   border-radius: 2rem;
@@ -70,17 +71,18 @@
   }
 }
 
-.form__link-ask {
+@mixin form__link-ask {
   margin-top: 2rem;
 }
 
-.form__link {
+@mixin form__link {
   color: #d535b5;
   text-transform: uppercase;
   text-decoration: none;
 }
 
-.form__error {
+@mixin form__error {
   color: red;
   margin-bottom: .5rem;
 }
+

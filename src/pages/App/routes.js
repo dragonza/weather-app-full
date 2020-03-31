@@ -6,12 +6,13 @@ import { createBrowserHistory } from 'history';
 import Layout from '../../components/Layout';
 
 import { configureStore } from '../../store/configure-store';
-import App from '../HomePage/App';
+import Home from '../HomePage/Home';
 import WeatherDetail from "../DetailPage/WeatherDetail";
 import Signup from '../Auth/Signup/Signup';
-// import Signout from '../Auth/Signout/Signout';
+import Feature from '../Feature/Feature';
 import PrivateRoute from './ProtectedRoute';
 import Signin from '../Auth/Signin/Signin';
+import AddWeather from "../AddWeatherPage/AddWeather";
 
 export const history = createBrowserHistory({
   basename: process.env.PUBLIC_URL
@@ -24,11 +25,12 @@ export default function Routes() {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <Switch>
-          <Route exact path="/" component={App} />
-          <Route path="/detail/:city" component={WeatherDetail} />
+          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute path="/feature" component={Feature} />
+          <PrivateRoute path="/detail/:city" component={WeatherDetail} />
+          <PrivateRoute path="/add" component={AddWeather} />
           <Route path="/signup" component={Signup} />
           <Route path="/signin" component={Signin} />
-          {/*<Route path="/signout" component={Signout} />*/}
           <Route component={() => <div>404 Not found </div>} />
         </Switch>
       </ConnectedRouter>

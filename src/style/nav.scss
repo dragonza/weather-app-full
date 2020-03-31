@@ -1,19 +1,16 @@
 .header {
   --headerBg: #fff;
-  --headerShadow: #E8EAFF;
 
   display: flex;
   background-color: var(--headerBg);
   align-items: center;
   padding: 8px 10px;
-  z-index: 10;
   position: relative;
 }
 
 .dark {
   .header {
     --headerBg: #2B244D;
-    --headerShadow: none;
   }
 }
 

@@ -219,3 +219,13 @@ code {
   .react-toggle-track {
   background-color: #cecece;
 }
+
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

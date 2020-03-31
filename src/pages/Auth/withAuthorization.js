@@ -5,42 +5,35 @@ import { ROUTES } from "../App/constants";
 import firebase from "firebase";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
+import { makeAuthUserSelector } from "./auth-selector";
 
-
-const withAuthorization = condition => ChildComponent => {
+const withAuthorization = ChildComponent => {
   class ComposedComponent extends Component {
-    state = {
-      user: null
-    };
-
-    // Our component just got rendered
     componentDidMount() {
-      this.listener = firebase.auth().onAuthStateChanged(authUser => {
-        if (!condition(authUser)) {
-          this.props.history.push(ROUTES.SIGN_IN);
-        } else {
-          this.setState({
-            user: authUser
-          })
-        }
-      });
+      console.log("this.props.user", this.props);
+      if (!this.props.user) {
+        this.props.history.push(ROUTES.SIGN_IN);
+      }
     }
-
-    componentWillUnmount() {
-      this.listener();
+    //
+    componentDidUpdate(prevProps, prevState) {
+      console.log("prevProps", prevProps);
+      console.log('this.props', this.props);
+      if (prevProps.user !== this.props.user && !this.props.user) {
+        this.props.history.push(ROUTES.SIGN_IN);
+      }
     }
 
     render() {
-      return this.state.user ? <ChildComponent {...this.props} /> : null;
+      console.log('render');
+      return this.props.user ? <ChildComponent {...this.props} /> : null;
     }
   }
-  const mapStateToProps = createStructuredSelector({});
+  const mapStateToProps = state => ({
+    user: state.getIn(["auth", "user"])
+  });
 
-  return compose(
-    withRouter,
-    connect(mapStateToProps)
-  )(ComposedComponent);
+  return connect(mapStateToProps)(ComposedComponent);
 };
 
 export default withAuthorization;
-

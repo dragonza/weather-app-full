@@ -6,5 +6,7 @@ export default fromJS({
   auth: {
     errorMessage: '',
     loading: false,
+    loggedIn: false,
+    user: JSON.parse(localStorage.getItem('user')) || null,
   }
 });
