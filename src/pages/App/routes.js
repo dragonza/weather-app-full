@@ -9,7 +9,6 @@ import { configureStore } from '../../store/configure-store';
 import Home from '../HomePage/Home';
 import WeatherDetail from "../DetailPage/WeatherDetail";
 import Signup from '../Auth/Signup/Signup';
-import Feature from '../Feature/Feature';
 import PrivateRoute from './ProtectedRoute';
 import Signin from '../Auth/Signin/Signin';
 import AddWeather from "../AddWeatherPage/AddWeather";
@@ -26,7 +25,6 @@ export default function Routes() {
       <ConnectedRouter history={history}>
         <Switch>
           <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute path="/feature" component={Feature} />
           <PrivateRoute path="/detail/:city" component={WeatherDetail} />
           <PrivateRoute path="/add" component={AddWeather} />
           <Route path="/signup" component={Signup} />
