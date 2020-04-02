@@ -15,3 +15,10 @@ export const makeAuthUserSelector = () =>
     authUserSelector,
     token => token
   );
+
+const locationSelector = state => state.getIn(["router", "location"]);
+export const makeLocationSelector = () =>
+  createSelector(
+    locationSelector,
+    location => console.log('locationfdaf', location.toJSON()) || location
+  );

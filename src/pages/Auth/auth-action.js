@@ -85,7 +85,6 @@ export const signInFailed = (payload = {}) => {
 /*==== LOGOUT====*/
 
 export const signout = () => {
-  console.log("test");
   return {
     type: SIGNOUT_SAGA
   };

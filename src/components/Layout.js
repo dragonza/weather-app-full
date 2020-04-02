@@ -17,6 +17,8 @@ function Layout({ children, className, user }) {
     [className]: className
   });
 
+
+
   return (
     <div className={layoutClass}>
       <SideMenu

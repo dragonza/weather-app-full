@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import { createBrowserHistory } from 'history';
 import Layout from '../../components/Layout';
@@ -22,7 +22,7 @@ export default function Routes() {
 
   return (
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <BrowserRouter >
         <Switch>
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute path="/detail/:city" component={WeatherDetail} />
@@ -31,7 +31,7 @@ export default function Routes() {
           <Route path="/signin" component={Signin} />
           <Route component={() => <div>404 Not found </div>} />
         </Switch>
-      </ConnectedRouter>
+      </BrowserRouter>
     </Provider>
   );
 }

@@ -22,7 +22,7 @@
   z-index: 10;
   height: 100%;
   width: 90%;
-  max-width: 26rem;
+  max-width: 30rem;
   background-color: #fff;
   box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
   transition: transform 300ms linear;
@@ -36,6 +36,10 @@
 .side-menu__body,
 .side-menu__footer {
   flex: 1;
+}
+
+.side-menu__body {
+  padding: 2rem;
 }
 
 .side-menu__header {
@@ -82,4 +86,41 @@
   text-align: center;
   width: 100%;
   padding-top: 1rem;
+}
+
+.side-menu__account-detail {
+  display: flex;
+  justify-content: center;
+  min-height: 14rem;
+  align-items: center;
+  color: var(--white);
+}
+
+.side-menu__user-email {
+  font-size: 2rem
+}
+
+.side-menu__user-photo-wrapper {
+  width: 8rem;
+  margin-right: 1.5rem;
+}
+
+.side-menu__button {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  padding: 2rem;
+}
+
+.side-menu__link {
+  color: var(--textNormal);
+  display: block;
+  text-decoration: none;
+  padding: 2rem;
+
+  &.is-active {
+    border-bottom: .1rem solid var(--green);
+  }
 }

@@ -3,7 +3,7 @@ export const ROUTES = {
   HOME: '/',
   SIGN_UP: '/signup',
   FEATURE: '/feature',
-  SIGN_IN: '/login',
+  SIGN_IN: '/signin',
   PASSWORD_FORGET: '/pw-forget',
   ACCOUNT: '/account',
 };

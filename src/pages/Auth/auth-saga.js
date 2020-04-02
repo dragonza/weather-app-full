@@ -16,6 +16,7 @@ import {
 } from "./auth-action";
 import { ROUTES } from "../App/constants";
 import rsf from "../../components/Firebase";
+import { fromJS } from "immutable";
 
 function* handleSignUpSaga({ formProps }) {
   try {
@@ -76,7 +77,7 @@ function* syncUserSaga() {
   while (true) {
     const { user } = yield take(channel);
     if (user) {
-      yield put(signUpSuccess({ loading: false, loggedIn: true, user }));
+      yield put(signInSuccess({ loading: false, loggedIn: true, user: user.toJSON() }));
     } else {
       yield put(signInFailed({ errorMessage: "", loading: false, user: null }));
     }

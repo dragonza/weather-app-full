@@ -3,6 +3,8 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { signout } from "../pages/Auth/auth-action";
+import profile from './icons/profile.svg'
+import { NavLink } from "react-router-dom";
 
 class SideMenu extends Component {
   render() {
@@ -21,20 +23,25 @@ class SideMenu extends Component {
           <section className="side-menu__header">
             <div className="side-menu__title">Welcome back</div>
             <div className="side-menu__account-detail">
-              <div className="side-menu__user-photo">photo</div>
+              <div className="side-menu__user-photo-wrapper">
+                <img src={profile} alt="profile" />
+
+              </div>
               <div className="side-menu__user-info">
-                <div className="side-menu__user-name">name</div>
-                <div className="side-menu__user-email">email</div>
+                <div className="side-menu__user-email">
+                  {user && (
+                    <div className="side-menu__email">{user.get("email")}</div>
+                  )}
+                </div>
               </div>
             </div>
           </section>
           <section className="side-menu__body">
-            {user && (
-              <div className="side-menu__email">{user.get("email")}</div>
-            )}
-          </section>
-          <section className="side-menu__footer">
-            <button onClick={() => signout()}>Signout</button>
+            <NavLink exact to='/' activeClassName='is-active' className="side-menu__link side-menu__link--home">Home</NavLink>
+            <NavLink exact to='/add' activeClassName='is-active' className="side-menu__link">Add City</NavLink>
+            <button onClick={() => signout()} className="side-menu__button">
+              Sign out
+            </button>
           </section>
         </nav>
       </aside>
