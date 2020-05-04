@@ -16,7 +16,6 @@ import {
 } from "./auth-action";
 import { ROUTES } from "../App/constants";
 import rsf from "../../components/Firebase";
-import { fromJS } from "immutable";
 
 function* handleSignUpSaga({ formProps }) {
   try {
@@ -44,6 +43,10 @@ function* handleSignUpSaga({ formProps }) {
 function* handleSignInSaga({ formProps }) {
   try {
     yield put(signInLoading(true));
+    // const snapshot = yield call(rsf.firestore.getCollection, 'cities');
+    //
+    //
+    // console.log('snapshot', snapshot);
     const { email, password } = formProps;
     const user = yield call(
       rsf.auth.signInWithEmailAndPassword,

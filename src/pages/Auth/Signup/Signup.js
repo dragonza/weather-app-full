@@ -38,13 +38,7 @@ class Signup extends Component {
                 <Link to={ROUTES.SIGN_IN} className="sign-up__link">Login</Link>
               </div>
             </div>
-            <div className="sign-up__bg">
-              {/*<img*/}
-              {/*  src="https://source.unsplash.com/random/1200x900?mountain"*/}
-              {/*  alt="sign-up__bg"*/}
-              {/*  className="sign-up__img"*/}
-              {/*/>*/}
-            </div>
+            <div className="sign-up__bg" />
           </div>
         </div>
       </AuthenLayout>

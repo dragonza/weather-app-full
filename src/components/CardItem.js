@@ -1,19 +1,24 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Sunny from "../../components/icons/Sunny";
-import Rain from "../../components/icons/Rain";
-import Fog from "../../components/icons/Fog";
-import Cloud from "../../components/icons/Cloud";
-import Storm from "../../components/icons/Storm";
-import Haze from "../../components/icons/Haze";
+import Sunny from "./icons/Sunny";
+// import Rain from "../../components/icons/Rain";
+// import Fog from "../../components/icons/Fog";
+// import Cloud from "../../components/icons/Cloud";
+// import Storm from "../../components/icons/Storm";
+// import Haze from "../../components/icons/Haze";
 import { Link } from "react-router-dom";
 
 class CardItem extends Component {
   render() {
     const { card } = this.props;
+    console.log('card', card);
+    if (!card) return null;
+    console.log('card.toJSON()', card.toJSON());
+    const city = card.get('name') ? card.get('name') : ''
+    console.log('card', card);
     return (
-      <Link className="weather-card" to={`/detail/${card.get('city').toLowerCase()}`}>
-        <div className="weather-card__city">{card.get('city')}</div>
+      <Link className="weather-card">
+        <div className="weather-card__city">{card.get('name')}</div>
         <div className="weather-card__icon-condition">
           <Sunny />
         </div>

@@ -1,11 +1,11 @@
 import React from "react";
-import CardList from "./CardList";
+import CardList from "../../components/CardList";
 import { fromJS } from "immutable";
 import AddCard from "./AddCard";
 import Layout from "../../components/Layout";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { makeAuthErrorSelector, makeAuthUserSelector, makeLocationSelector } from "../Auth/auth-selector";
+import { makeAuthUserSelector } from "../Auth/auth-selector";
 import { createStructuredSelector } from "reselect";
 
 const data = {
@@ -19,9 +19,6 @@ const data = {
 
 const condition = authUser => !!authUser;
 const Home = ({ user, location }) => {
-  console.log("app", location);
-  console.log('user', user);
-
   return (
     <Layout className="home-page__container" user={user}>
       <div className="cards-container">

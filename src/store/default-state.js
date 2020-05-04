@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { fromJS } from "immutable";
 export default fromJS({
+  selectedWeather: {},
   weathers: {},
   weatherDetail: {},
   auth: {

@@ -11,8 +11,47 @@
 
 .add-weather__content {
   @include main-container;
+  height: calc(100% - 50px)
+}
+.add-weather__city-selection {
+  background: white;
+  width: 50%;
+  padding: 4rem;
+  border-radius: 1rem 0 0 1rem;
+
+  .select__control {
+    padding: 1.5rem;
+    width: 100%;
+    box-shadow: 0 0 2rem rgba(0, 0, 255, 0.3);
+    border: none;
+    border-radius: 5rem;
+    margin-top: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .select__menu {
+    box-shadow: 0 0 2rem rgba(0, 0, 255, 0.3);
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
 }
 
 .add-weather__city-of-the-month {
-  background: url("https://www.viajarsolo.com/thumbnails/gallery_image_full/components/kcfinder/kcfinder-3.12/upload/images/0B8ejrJ3IlSZvQUdyWHgtZjdtVVE.jpg?itok=Y2KZ6rfH");
+  width: 50%;
+  border-radius: 0 1rem 1rem 0;
+  background: url(https://source.unsplash.com/random/1200x900?mountain) center center/cover no-repeat;
+}
+
+.add-weather__title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+
+.add-weather__card {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
 }

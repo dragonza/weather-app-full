@@ -9,7 +9,6 @@ import { NavLink } from "react-router-dom";
 class SideMenu extends Component {
   render() {
     const { isMenuActive, onOverLayClick, signout, user } = this.props;
-    console.log("user", user);
     const sideMenuClasses = classnames("side-menu", {
       "side-menu--active": isMenuActive
     });
